@@ -1,0 +1,37 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+
+int main(int argc, char **argv) {
+    char *newline = "\n", *space = " ";
+    int opt;
+
+    while ((opt = getopt(argc, argv, "ns")) != -1) {
+        switch (opt) {
+        case 'n':
+            newline = "";
+            break;
+        case 's':
+            space = "";
+            break;
+        default:
+            fprintf(stderr, "echo: %s [-n -s] [file ...]\n", argv[0]);
+            exit(EXIT_FAILURE);
+        }
+    }
+    
+    int cur = optind;
+    
+    while (cur < argc) {
+        if (argc == 1) {
+            printf("%s%s", argv[cur], newline);
+        } else {
+            printf("%s%s", argv[cur], space);
+        }
+    }
+    
+    exit(EXIT_SUCCESS);
+}
