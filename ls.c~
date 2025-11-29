@@ -187,7 +187,7 @@ int cmp(const void *x, const void *y) {
     int i, j;
 
    display_permission(st_mode);
-printf("%s", amode);
+
 
     return 0;
 }

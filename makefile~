@@ -1,5 +1,5 @@
 CC=gcc
-CFLAGS=-c -Wall -g -O0  -I.
+CFLAGS=-c -Wall -g -I.
 all: ls wc
 
 ls: ls.o
